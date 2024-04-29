@@ -28,7 +28,7 @@ public class O4_ReadingAllRowsAllcolumns {
              Workbook workbook = WorkbookFactory.create(fis)) {
 
             // Get the first sheet
-            Sheet sheet = workbook.getSheetAt(1);
+            org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheetAt(1);
 
             // Iterate over all rows
             for (Row row : sheet) {
