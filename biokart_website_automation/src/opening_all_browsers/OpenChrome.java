@@ -22,7 +22,7 @@ public class OpenChrome
 {
   public static void main(String[] args) throws InterruptedException, IOException {
 	  // set the system properties to open chrome browser
-	System.setProperty("webdriver.chrome.driver", "D:\\ecoders_testing_projects\\biokart_testing_project\\Biokart\\biokart_website_automation\\driver_executables\\chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver", "D:\\ecoders_testing_project\\biokart_testing_project\\Biokart\\Biokart\\biokart_website_automation\\driver_executables\\chromedriver.exe");
 	
     // open the web browser by creating an object of Chromedriver class. 
 	WebDriver driver =  new ChromeDriver(); 
@@ -31,7 +31,7 @@ public class OpenChrome
 //	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	
 	// updated code for implicitlyWait using Duration class,
-	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 	
 	// navigate to the biokart website using get() , or navigate().to() method. of WebDriver interface. 
 	
@@ -41,13 +41,15 @@ public class OpenChrome
 //	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	
 //	String expectedTitle = "Biokart India Pvt Ltd &#8211; Bringing Biotech Closer!";
-	String expectedTitle = "Biokart India Pvt Ltd – Bringing Biotech Closer!";
-//	Expected condition failed: waiting for title to be "Biokart India Pvt Ltd &#8211; Bringing Biotech Closer!". Current title: "Biokart India Pvt Ltd – Bringing Biotech Closer!
+	String expectedTitle = "Biokart India Pvt Ltd ï¿½ Bringing Biotech Closer!";
+//	Expected condition failed: waiting for title to be "Biokart India Pvt Ltd &#8211; Bringing Biotech Closer!". Current title: "Biokart India Pvt Ltd ï¿½ Bringing Biotech Closer!
 	
 	// check if the title of the biokart.com is matching or not. 
 
 	// check if the title of the biokart.com is matching or not. 
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	WebDriverWait wait = new WebDriverWait(driver, 10);
+	
 	try {
 	    Boolean element = wait.until(ExpectedConditions.titleIs(expectedTitle));
 	    if (element) {
@@ -63,8 +65,8 @@ public class OpenChrome
 	    // make a location on the hard disk to store the screenshot. 
 	    Date d = new Date();
 	    // Replace special characters in the file name.
-	    String sanitizedTitle = expectedTitle.replace("&", "").replace("–", "-");
-	    File hd = new File("D:\\ecoders_testing_projects\\biokart_testing_project\\Biokart\\biokart_website_automation\\failed_screenshots\\" + sanitizedTitle + "_" + d.getTime() + ".jpg");
+	    String sanitizedTitle = expectedTitle.replace("&", "").replace("ï¿½", "-");
+	    File hd = new File("D:\\ecoders_testing_project\\biokart_testing_project\\Biokart\\Biokart\\biokart_website_automation\\failed_screenshots" + sanitizedTitle + "_" + d.getTime() + ".jpg");
 	    // copy the file from RAM to the hard disk location. 
 	    Files.copy(ram, hd);
 	}
