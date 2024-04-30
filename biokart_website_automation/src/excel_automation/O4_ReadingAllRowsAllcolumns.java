@@ -3,7 +3,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class O4_ReadingAllRowsAllcolumns {
 
@@ -23,7 +28,7 @@ public class O4_ReadingAllRowsAllcolumns {
              Workbook workbook = WorkbookFactory.create(fis)) {
 
             // Get the first sheet
-            Sheet sheet = workbook.getSheetAt(1);
+            org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheetAt(1);
 
             // Iterate over all rows
             for (Row row : sheet) {
