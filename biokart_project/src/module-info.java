@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * 
- */
-module biokart_project {
-}
